@@ -33,7 +33,7 @@ namespace 矩阵类库
 
         public Matrix()
         {
-            Name = "A";
+            Name = "R";
             Elements = null;
             Count = null;
             Rows = null;
@@ -92,7 +92,7 @@ namespace 矩阵类库
 
 
         /// <summary>
-        /// 在控制台上为矩阵赋值
+        /// 在控制台上为矩阵赋值，未对输入异常进行处理
         /// </summary>
         public void SetMatrix()
         {
@@ -102,30 +102,38 @@ namespace 矩阵类库
             {
                 for (int j = 0; j < Cols; j++)
                 {
+                    /*
                     try
                     {
-                        Write($"{Name} 矩阵的第 {i + 1} 行，第 {j + 1} 列的值为:");
-                        Elements[i, j] = ToDouble(ReadLine());
-                        WriteLine();
-                        if (j == Cols - 1)
-                        {
-                            if (i != Rows - 1)
-                                WriteLine("注意，下一行了！");
-                        }
-
-                    }
-                    catch(FormatException e)
+                    */
+                    Write($"{Name} 矩阵的第 {i + 1} 行，第 {j + 1} 列的值为:");
+                    Elements[i, j] = ToDouble(ReadLine());
+                    WriteLine();
+                    if (j == Cols - 1)
                     {
-                        WriteLine(e.Message);
-                        ReadKey();
-                        Environment.Exit(0);
+                        if (i != Rows - 1)
+                            WriteLine("注意，下一行了！");
                     }
+
+                    /*
+                    }
+                    */
+                    /*
                     catch (ArrayTypeMismatchException e)
                     {
                         WriteLine(e.Message + "\t" + e.StackTrace);
                         ReadKey();
                         Environment.Exit(0);
                     }
+                    */
+                    /*
+                    catch(FormatException e)
+                    {
+                        WriteLine(e.Message);
+                        ReadKey();
+                        Environment.Exit(0);
+                    }
+                    */
                 }
             }
         }
